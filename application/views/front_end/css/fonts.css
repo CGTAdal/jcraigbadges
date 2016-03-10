@@ -1,0 +1,12 @@
+
+@font-face {
+	font-family: 'Gotham-Medium';
+	src: url('fonts/Gotham-Medium.eot');
+	src: local('☺'), url('fonts/Gotham-Medium.woff') format('woff'), url('fonts/Gotham-Medium.ttf') format('truetype'), url('fonts/Gotham-Medium.svg') format('svg');
+}
+@font-face {
+	font-family: 'Gotham-Light';
+	src: url('fonts/Gotham-Light.eot');
+	src: local('☺'), url('fonts/Gotham-Light.woff') format('woff'), url('fonts/Gotham-Light.ttf') format('truetype'), url('fonts/Gotham-Light.svg') format('svg');
+}
+

@@ -1,0 +1,40 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2015-01-16 04:25:47 --> 404 Page Not Found --> admin/config.php
+ERROR - 2015-01-16 07:16:32 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 14:03:09 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:37:57 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:37:59 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:02 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:07 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:10 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:14 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:22 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:25 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:27 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:29 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:31 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:35 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:36 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:43 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:44 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:47 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:49 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:50 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:51 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:53 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:54 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:55 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:56 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:57 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:58 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:58 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:38:59 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:00 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:01 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:02 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:02 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:03 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:04 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:05 --> 404 Page Not Found --> 
+ERROR - 2015-01-16 22:39:05 --> 404 Page Not Found --> 
