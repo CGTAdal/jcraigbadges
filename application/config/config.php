@@ -14,7 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://dev.jennycraigbadges.com/';
+// $config['base_url']	= 'http://dev.jennycraigbadges.com/';
+$config['base_url']	= 'http://localhost/ryan/dev_jennycraigbadges_com/';
 
 /*
 |--------------------------------------------------------------------------
