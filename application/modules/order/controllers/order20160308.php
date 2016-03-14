@@ -69,10 +69,6 @@ class Order extends MX_Controller {
 		# generate random code
 		$this->load->helper('mystring');
 		$code = rand_md5(32);
-		
-		// New Change 2016-03-08 Hem Singh
-		$data['order_status'] = 2;
-		$data['order_approve_dated'] = time();
 
 		$data['order_code'] = $code;
 		
@@ -95,8 +91,6 @@ class Order extends MX_Controller {
 			
 			if(count($market_director) > 0 && $market_director->store_email != "") {
 				# from
-				// New Change 2016-03-08 Hem Singh
-				/*
 				$this->email->from('support@bestnamebadges.com');
 				# to
 				$this->email->to($market_director->store_email);
@@ -112,7 +106,7 @@ class Order extends MX_Controller {
 				$this->email->subject($subject);
 				$this->email->message($message);
 				#sending email
-				$sending	= $this->email->send(); */
+				$sending	= $this->email->send();
 			}
 		}
 		

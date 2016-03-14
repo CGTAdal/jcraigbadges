@@ -2,7 +2,6 @@
 class Store extends MX_Controller {
 	
 	var $error_messages = "";
-	var $markets = array();
 	
 	function __construct() {
 		parent::__construct();
@@ -222,100 +221,6 @@ class Store extends MX_Controller {
 		$this->session->unset_userdata('cart_total');
 		$this->session->unset_userdata('tenured_total');
 		redirect('store/login');
-	}
-
-	function update_excel_data() {
-		// echo BASEPATH.'../'; exit;
-		require_once 'excel_reader2.php';
-		// $filename = BASEPATH."../application/modules/store/controllers/newdata.xls";
-		$filename = BASEPATH."../_newdata.xls";
-		$data = new Spreadsheet_Excel_Reader($filename);
-
-		$sheet_index = 0;
-		$totalrow = $data->rowcount($sheet_index);
-		$totalcol = $data->colcount($sheet_index);
-		$error_log = array();
-
-		for ($row=2; $row <= $totalrow; $row++) { 
-			$storedata = array();
-			$marketId = 0;
-
-			for ($col=1; $col <= $totalcol; $col++) { 
-				echo $data->val($row,$col,$sheet_index).' || ';
-
-				$value = $data->val($row,$col,$sheet_index);
-				switch($col){
-					case 1:
-						// $storedata['store_ground'] = $value;
-					break;
-					case 2:
-						$value = explode(" ", $value);
-						$value = $value[0];
-						$marketId = $this->isMarketExists($value);
-						if(!$marketId){
-							$marketId = $this->createMarket($value);
-						}
-						if($marketId>0)
-						$storedata['store_assigned'] = $marketId;
-					break;
-					case 3:
-						$storedata['store_number'] = $value;
-					break;
-					case 4:
-						$storedata['store_location_name'] = $value;
-					break;
-					case 5:
-						$storedata['store_address'] = $value;
-					break;
-					case 6:
-						$storedata['store_city'] = $value;
-					break;
-					case 7:
-						$storedata['store_state'] = $value;
-					break;
-					case 8:
-						$storedata['store_zip'] = $value;
-					break;
-					case 9:
-						$storedata['store_phone'] = $value;
-					break;
-					
-				}
-				$storedata['store_role'] = 1;
-			}
-			echo ' </br>';
-			if($marketId>0){
-				$storedata['store_password'] = '';
-				$this->store_model->saveItem('stores',array('id'=>0),$storedata);	
-			}else{
-				$error_log[] = $storedata;
-			}
-			// if($row>30)
-			// break;
-		}
-		echo '<br/> ERRORS: </br>';
-		print_r($error_log);
-		$data['data'] = 'demo';
-		$data['content'] = 'update_excel_data';
-		$this->load->view('front_end/index',$data);
-	}
-
-	protected function isMarketExists($matchkey){
-		foreach ($this->markets as $key => $values) {
-			if($values['value'] == $matchkey){
-				return $values['id'];
-			}
-		}
-		return false;
-	}
-	protected function createMarket($value){
-		$storedata = array();
-		$storedata['store_role'] = 2;
-		$storedata['store_number'] = $value;
-		$storedata['store_password'] = md5(trim('supplies'));
-		$id = $this->store_model->saveItem('stores',array('id'=>0),$storedata);
-		$this->markets[] = array('id'=>$id,'value'=>$value);
-		return $id;
 	}
 	
 }
