@@ -3,10 +3,14 @@ class Store extends MX_Controller {
 	
 	var $error_messages = "";
 	var $markets = array();
+	var $stores = array();
 	
 	function __construct() {
 		parent::__construct();
 		$this->load->model('store_model');
+		$this->db->select('store_id, store_number');
+		$this->markets = $this->db->get_where('stores', array('store_role' => 2))->result_array();
+		$this->stores = $this->db->get_where('stores', array('store_role' => 1))->result_array();
 	}
 		
 	function login() {
@@ -235,11 +239,11 @@ class Store extends MX_Controller {
 		$totalrow = $data->rowcount($sheet_index);
 		$totalcol = $data->colcount($sheet_index);
 		$error_log = array();
-
+		
 		for ($row=2; $row <= $totalrow; $row++) { 
 			$storedata = array();
 			$marketId = 0;
-
+			$storeId = 0;
 			for ($col=1; $col <= $totalcol; $col++) { 
 				echo $data->val($row,$col,$sheet_index).' || ';
 
@@ -259,6 +263,10 @@ class Store extends MX_Controller {
 						$storedata['store_assigned'] = $marketId;
 					break;
 					case 3:
+						$storeId = $this->isStoreExists($value);
+						if(!$storeId)
+							$storeId = 0;
+
 						$storedata['store_number'] = $value;
 					break;
 					case 4:
@@ -286,13 +294,15 @@ class Store extends MX_Controller {
 			echo ' </br>';
 			if($marketId>0){
 				$storedata['store_password'] = '';
-				$this->store_model->saveItem('stores',array('id'=>0),$storedata);	
+				$this->store_model->saveItem('stores',array('id'=>$storeId,'field' => 'store_number'),$storedata);	
 			}else{
 				$error_log[] = $storedata;
 			}
+
+			echo '<pre>'; print_r($storedata); echo '</pre>'; 
 			// if($row>30)
 			// break;
-		}
+		} exit;
 		echo '<br/> ERRORS: </br>';
 		print_r($error_log);
 		$data['data'] = 'demo';
@@ -302,19 +312,29 @@ class Store extends MX_Controller {
 
 	protected function isMarketExists($matchkey){
 		foreach ($this->markets as $key => $values) {
-			if($values['value'] == $matchkey){
-				return $values['id'];
+			if($values['store_number'] == $matchkey){
+				return $values['store_number'];
 			}
 		}
 		return false;
 	}
+
+	protected function isStoreExists($matchkey){
+		foreach ($this->stores as $key => $values) {
+			if(isset($values['store_number']) && $values['store_number'] == $matchkey){
+				return $values['store_number'];
+			}
+		}
+		return false;
+	}
+
 	protected function createMarket($value){
 		$storedata = array();
 		$storedata['store_role'] = 2;
 		$storedata['store_number'] = $value;
 		$storedata['store_password'] = md5(trim('supplies'));
 		$id = $this->store_model->saveItem('stores',array('id'=>0),$storedata);
-		$this->markets[] = array('id'=>$id,'value'=>$value);
+		$this->markets[] = array('store_id'=>$id,'store_number'=>$value);
 		return $id;
 	}
 	
