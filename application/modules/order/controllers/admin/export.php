@@ -10,6 +10,13 @@ class Export extends MX_Controller {
 		{
 			redirect('admin/login');
 		}
+		if(!isset($this->session->userdata['admin'])) 
+		{
+			redirect('admin/login');
+		}
+		if($this->session->userdata('role')!=0){
+			redirect('admin');
+		}
 		$this->load->model('order_model');
 	}
 	

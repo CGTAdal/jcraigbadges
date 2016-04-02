@@ -9,9 +9,12 @@ class Process extends MX_Controller {
 		{
 			redirect('admin/login');
 		}
-		if($this->session->userdata('role')==1){
+		/*if($this->session->userdata('role')==1){
 			redirect('admin');
-		}	
+		}*/	
+		if($this->session->userdata('role')!=0){
+			redirect('admin');
+		}
 		$this->load->model('order_model');
 	}
 	

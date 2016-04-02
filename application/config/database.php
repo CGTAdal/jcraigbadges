@@ -65,7 +65,7 @@ $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
 
-$db['jcpbadges']['hostname'] = 'localhost';
+$db['jcpbadges']['hostname'] = '192.168.1.173';
 $db['jcpbadges']['username'] = 'admin';
 $db['jcpbadges']['password'] = 'admin';//test
 $db['jcpbadges']['database'] = 'devjenny_databaSe';

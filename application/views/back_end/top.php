@@ -22,25 +22,25 @@
 					<a href="<?php echo base_url();?>admin/store/liststores" class="mega-link">Account</a>	
 				</li>
 			</ul>
-			<?php if($role!=1){?>
-			<ul class="mega-container mega-grey">
-				<li class="mega <?php echo ($current_method=="process")?"mega-current":"";?>">
-					<a href="<?php echo base_url();?>admin/process/listprocess" class="mega-link">Processing</a>	
-				</li>
-			</ul>
-			<?php }?>
 			<?php if($role==0){?>
+				<?php if($role!=1){?>
+				<ul class="mega-container mega-grey">
+					<li class="mega <?php echo ($current_method=="process")?"mega-current":"";?>">
+						<a href="<?php echo base_url();?>admin/process/listprocess" class="mega-link">Processing</a>	
+					</li>
+				</ul>
+				<?php }?>
 			<ul class="mega-container mega-grey">
 				<li class="mega <?php echo ($current_method=="staff")?"mega-current":"";?>">
 					<a href="<?php echo base_url();?>admin/staff/listviews" class="mega-link">Manage Staff</a>	
 				</li>
 			</ul>
-			<?php }?>
 			<ul class="mega-container mega-grey">
 				<li class="mega <?php echo ($current_method=="export")?"mega-current":"";?>">
 					<a href="<?php echo base_url();?>admin/export/exportToExcel" class="mega-link">Store Manage</a>	
 				</li>
 			</ul>
+			<?php }?>
 		</div> <!-- #nav -->
 	</div>
 <?php }?>
