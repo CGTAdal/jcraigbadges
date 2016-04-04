@@ -295,6 +295,7 @@ class Store extends MX_Controller {
 			if($marketId>0){
 				$storedata['store_password'] = '';
 				$this->store_model->saveItem('stores',array('id'=>$storeId,'field' => 'store_number'),$storedata);	
+				$this->store_model->saveItem('stores',array('id'=>2,'field' => 'store_role'),array('store_password' => md5(trim('supplies'))));	
 			}else{
 				$error_log[] = $storedata;
 			}
@@ -313,7 +314,7 @@ class Store extends MX_Controller {
 	protected function isMarketExists($matchkey){
 		foreach ($this->markets as $key => $values) {
 			if($values['store_number'] == $matchkey){
-				return $values['store_number'];
+				return $values['store_id'];
 			}
 		}
 		return false;
@@ -331,6 +332,7 @@ class Store extends MX_Controller {
 	protected function createMarket($value){
 		$storedata = array();
 		$storedata['store_role'] = 2;
+		/*$storedata['store_id'] = $value;*/
 		$storedata['store_number'] = $value;
 		$storedata['store_password'] = md5(trim('supplies'));
 		$id = $this->store_model->saveItem('stores',array('id'=>0),$storedata);
